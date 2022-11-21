@@ -82,6 +82,12 @@ namespace Excersise_Linked_List_D
                 Console.WriteLine("\nRecord in the descading order of" + "roll number are: \n");
                 Node currentNode;
                 for (currentNode = LAST; currentNode != null; currentNode = currentNode.next) { }
+
+                while (currentNode != null)
+                {
+                    Console.WriteLine(currentNode.rollNumber + "" + currentNode.name + "\n");
+                    currentNode = currentNode.next;
+                }
             }
         }
 
