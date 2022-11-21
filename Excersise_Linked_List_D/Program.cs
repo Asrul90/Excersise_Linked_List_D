@@ -49,10 +49,14 @@ namespace Excersise_Linked_List_D
                 Console.WriteLine("\nList is empty");
             else
             {
-                Console.WriteLine();
+                Console.WriteLine("\nRecord in the list are:\n");
                 Node currentNode;
                 currentNode = LAST.next;
-                while (currentNode != LAST) { }
+                while (currentNode != LAST)
+                {
+                    Console.Write(currentNode.rollNumber + "  " + currentNode.name + "\n");
+                    currentNode = currentNode.next; 
+                }
             }
         }
     }
