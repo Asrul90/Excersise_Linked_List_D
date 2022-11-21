@@ -43,7 +43,15 @@ namespace Excersise_Linked_List_D
             else
                 return false;
         }
+        public void traverse()/* traverse all the nodes of the list*/
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+            {
 
+            }
+        }
     }
     internal class Program
     {
