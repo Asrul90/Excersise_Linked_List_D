@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace Excersise_Linked_List_D
 {
+    class Node
+    {
+        /* cretes node for the circular nexted list*/
+        public int rollNumber;
+        public string name;
+        public Node next;
+    }
+
+    
     internal class Program
     {
         static void Main(string[] args)
