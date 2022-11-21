@@ -132,10 +132,4 @@ namespace Excersise_Linked_List_D
             }
         }
     }
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-        }
-    }
 }
