@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace Excersise_Linked_List_D
             {
                 if (rollNo == current.rollNumber)
                     return (true);/* returns true if the node is found*/
-            } 
+            }
             if (rollNo == LAST.rollNumber)/* if the node is present at the end*/
                 return true;
             else
@@ -55,7 +56,7 @@ namespace Excersise_Linked_List_D
                 while (currentNode != LAST)
                 {
                     Console.Write(currentNode.rollNumber + "  " + currentNode.name + "\n");
-                    currentNode = currentNode.next; 
+                    currentNode = currentNode.next;
                 }
                 Console.Write(LAST.rollNumber + "   " + LAST.name + "\n");
             }
@@ -65,69 +66,88 @@ namespace Excersise_Linked_List_D
             if (listEmpty())
                 Console.WriteLine("\nList is empty");
             else
+            {
                 Console.WriteLine("\nThe firs ricord in the list is:\n\n" +
                     LAST.next.rollNumber + "   " + LAST.next.name);
+            }
         }
-        static void Main(string[] args)
+
+        public void descending()
         {
-            CircularList obj = new CircularList();
-            while (true)
+            if (listEmpty())
+                Console.WriteLine("\nList empty");
+            else
             {
-                try
+
+                Console.WriteLine("\nRecord in the descading order of" + "roll number are: \n");
+                Node currentNode;
+                for (currentNode = LAST; currentNode != null; currentNode = currentNode.next) { }
+            }
+        }
+
+        class program
+        {
+            static void Main(string[] args)
+            {
+                CircularList obj = new CircularList();
+                while (true)
                 {
-                    Console.WriteLine("\nMenu");
-                    Console.WriteLine("1. viuw all the ricords in the list");
-                    Console.WriteLine("2. search for a ricord in the list ");
-                    Console.WriteLine("3. display the first ricord in the list ");
-                    Console.WriteLine("4. Exit");
-                    Console.WriteLine("\nEnter your choice (1-4): ");
-                    char ch = Convert.ToChar(Console.ReadLine());  
-                    switch (ch)
+                    try
                     {
-                        case '1':
-                            {
-                                obj.traverse();
-                            }
-                            break;
-                        case '2':
-                            {
-                                if (obj.listEmpty() == true)
+                        Console.WriteLine("\nMenu");
+                        Console.WriteLine("1. viuw all the ricords in the list");
+                        Console.WriteLine("2. search for a ricord in the list ");
+                        Console.WriteLine("3. display the first ricord in the list ");
+                        Console.WriteLine("4. Exit");
+                        Console.WriteLine("\nEnter your choice (1-4): ");
+                        char ch = Convert.ToChar(Console.ReadLine());
+                        switch (ch)
+                        {
+                            case '1':
                                 {
-                                    Console.WriteLine("\nList is empty");
+                                    obj.traverse();
+                                }
+                                break;
+                            case '2':
+                                {
+                                    if (obj.listEmpty() == true)
+                                    {
+                                        Console.WriteLine("\nList is empty");
+                                        break;
+                                    }
+                                    Node prev, curr;
+                                    prev = curr = null;
+                                    Console.Write("\nEnter the roll number of the student whese record is to be serched: ");
+                                    int num = Convert.ToInt32((Console.ReadLine()));
+                                    if (obj.search(num, ref prev, ref curr) == false)
+                                        Console.WriteLine("\nRecord not found");
+                                    else
+                                    {
+                                        Console.WriteLine("\nRecord found");
+                                        Console.WriteLine("\nRoll Number: " + curr.rollNumber);
+                                        Console.WriteLine("\nName: " + curr.name);
+                                    }
+                                }
+                                break;
+                            case '3':
+                                {
+                                    obj.firstNode();
+                                }
+                                break;
+                            case '4':
+                                return;
+                            default:
+                                {
+                                    Console.WriteLine("invalid option");
                                     break;
                                 }
-                                Node prev, curr;
-                                prev = curr = null;
-                                Console.Write("\nEnter the roll number of the student whese record is to be serched: ");
-                                int num = Convert.ToInt32((Console.ReadLine()));
-                                if (obj.search(num, ref prev, ref curr) == false)
-                                    Console.WriteLine("\nRecord not found");
-                                else
-                                {
-                                    Console.WriteLine("\nRecord found");
-                                    Console.WriteLine("\nRoll Number: " + curr.rollNumber);
-                                    Console.WriteLine("\nName: " + curr.name);
-                                }
-                            }
-                            break;
-                        case '3':
-                            {
-                                obj.firstNode();
-                            }
-                            break;
-                        case '4':
-                            return;
-                        default:
-                            {
-                                Console.WriteLine("invalid option");
-                                break;
-                            }
-                    }
+                        }
 
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.ToString());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
                 }
             }
         }
