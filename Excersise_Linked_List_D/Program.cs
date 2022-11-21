@@ -85,6 +85,20 @@ namespace Excersise_Linked_List_D
             }
         }
 
+        public void ascending()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList empty");
+            else
+            {
+
+                Console.WriteLine("\nRecord in the descading order of" + "roll number are: \n");
+                Node currentNode;
+                for (currentNode = LAST; currentNode != null; currentNode = currentNode.next)
+                    Console.WriteLine(currentNode.rollNumber + "" + currentNode.name + "\n");
+            }
+        }
+
         class program
         {
             static void Main(string[] args)
