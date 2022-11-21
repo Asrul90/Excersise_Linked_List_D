@@ -36,6 +36,14 @@ namespace Excersise_Linked_List_D
             else
                 return false;/* return false if the node is not found*/
         }
+        public bool listEmpty()
+        {
+            if (LAST == null)
+                return true;
+            else
+                return false;
+        }
+
     }
     internal class Program
     {
