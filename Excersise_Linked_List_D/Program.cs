@@ -49,7 +49,10 @@ namespace Excersise_Linked_List_D
                 Console.WriteLine("\nList is empty");
             else
             {
-
+                Console.WriteLine();
+                Node currentNode;
+                currentNode = LAST.next;
+                while (currentNode != LAST) { }
             }
         }
     }
