@@ -14,6 +14,29 @@ namespace Excersise_Linked_List_D
         public Node next;
     }
 
+    class CircularList
+    {
+        Node LAST;
+
+        public CircularList()
+        {
+            LAST = null;
+        }
+
+        public bool search(int rollNo, ref Node previous, ref Node current)
+        /*Searches for the specified node*/
+        {
+            for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
+            {
+                if (rollNo == current.rollNumber)
+                    return (true);/* returns true if the node is found*/
+            } 
+            if (rollNo == LAST.rollNumber)/* if the node is present at the end*/
+                return true;
+            else
+                return false;/* return false if the node is not found*/
+        }
+    }
     internal class Program
     {
         static void Main(string[] args)
